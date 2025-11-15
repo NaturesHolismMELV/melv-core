@@ -13,22 +13,22 @@ import melv
 import numpy as np
 
 
-def test_hornbills_beeaters():
-    """Test Chapter 4 example: Namibian hornbills and bee-eaters."""
+def test_cleaner_fish():
+    """Test well-documented mutualism: Cleaner fish (Labroides dimidiatus) and client fish."""
     print("\n" + "="*60)
-    print("TEST 1: Hornbills and Bee-Eaters (Chapter 4)")
+    print("TEST 1: Cleaner Fish Mutualism")
     print("="*60)
     
     result = melv.calculate_i_factor(
-        overlap=0.3,          # Low resource overlap
-        differentiation=0.85   # High service differentiation
+        overlap=0.2,          # Very low resource overlap (different food sources)
+        differentiation=0.85   # High service differentiation (parasite removal vs cleaning station)
     )
     
     print(f"i-factor: {result['i_factor']:.2f}")
     print(f"Regime: {result['regime']}")
-    print(f"Expected: i ≈ 0.35, Cooperative")
+    print(f"Expected: i ≈ 0.24, Cooperative")
     
-    assert 0.34 < result['i_factor'] < 0.36, f"Expected ~0.35, got {result['i_factor']}"
+    assert 0.23 < result['i_factor'] < 0.25, f"Expected ~0.24, got {result['i_factor']}"
     assert result['regime'] == "Cooperative", f"Expected Cooperative, got {result['regime']}"
     
     print("✓ PASSED")
@@ -173,7 +173,7 @@ def run_all_tests():
     print("\nValidating against book examples and October 2025 results...")
     
     tests = [
-        test_hornbills_beeaters,
+        test_cleaner_fish,
         test_social_media,
         test_critical_threshold,
         test_uncertainty_quantification,

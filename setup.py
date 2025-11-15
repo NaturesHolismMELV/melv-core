@@ -17,11 +17,11 @@ setup(
     description="Mathematical Ecology of Cooperation - Calculate cooperation dynamics",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/NaturesHolismMELV/melv-core",  # Update after creating repo
+    url="https://github.com/YOUR-USERNAME/melv-core",  # Update after creating repo
     project_urls={
-        "Bug Tracker": "https://github.com/NaturesHolismMELV/melv-core/issues",
-        "Documentation": "https://github.com/NaturesHolismMELV/melv-core",
-        "Source Code": "https://github.com/NaturesHolismMELV/melv-core",
+        "Bug Tracker": "https://github.com/YOUR-USERNAME/melv-core/issues",
+        "Documentation": "https://github.com/YOUR-USERNAME/melv-core",
+        "Source Code": "https://github.com/YOUR-USERNAME/melv-core",
     },
     package_dir={"": "src"},
     packages=find_packages(where="src"),

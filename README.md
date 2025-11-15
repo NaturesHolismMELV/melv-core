@@ -1,7 +1,7 @@
 # MELV-Core: Mathematical Ecology of Cooperation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NaturesHolismMELV/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/YOUR-USERNAME/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
 
 **Open-source tools for calculating cooperation dynamics**
 
@@ -103,7 +103,7 @@ Click the Binder badge above—runs in your browser with zero installation!
 
 ```bash
 # Clone repository
-git clone https://github.com/NaturesHolismMELV/melv-core.git
+git clone https://github.com/YOUR-USERNAME/melv-core.git
 cd melv-core
 
 # Install package
@@ -116,30 +116,30 @@ pip install -e ".[tutorials]"
 ### Option 3: Just the Package
 
 ```bash
-pip install git+https://github.com/NaturesHolismMELV/melv-core.git
+pip install git+https://github.com/YOUR-USERNAME/melv-core.git
 ```
 
 ## Tutorials
 
 ### Tutorial 1: Your First i-Factor Calculation (20 minutes)
 Interactive introduction covering:
-- Namibian hornbills & bee-eaters (i = 0.35)
+- Cleaner fish mutualism (i = 0.24)
 - Social media platforms (i = 1.60)
 - Critical threshold at i ≈ 1.0
 - Uncertainty quantification
 - Hands-on exploration
 
-[Run in Binder](https://mybinder.org/v2/gh/NaturesHolismMELV/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
+[Run in Binder](https://mybinder.org/v2/gh/YOUR-USERNAME/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
 
 ## Example Results
 
-### Cooperation: Namibian Hornbills & Bee-Eaters
+### Cooperation: Cleaner Fish & Client Fish
 ```python
-result = melv.calculate_i_factor(overlap=0.3, differentiation=0.85)
-# i = 0.35 → Cooperative
+result = melv.calculate_i_factor(overlap=0.2, differentiation=0.85)
+# i = 0.24 → Cooperative
 ```
 
-**Interpretation**: Low resource overlap (different prey sizes) combined with high service differentiation (bee-eaters remove parasites, hornbills provide nesting sites) creates strong cooperation.
+**Interpretation**: Very low resource overlap (completely different food sources - cleaners eat parasites, clients eat other prey) combined with high service differentiation (parasite removal provides life-or-death health benefits, clients provide cleaning station access) creates strong cooperation. This well-documented mutualism (*Labroides dimidiatus*) demonstrates MELV predictions in action.
 
 ### Competition: Social Media Platforms
 ```python
@@ -197,7 +197,7 @@ python test_calculator.py
 ```
 
 All 6 tests should pass:
-- ✓ Hornbills/bee-eaters (i = 0.35)
+- ✓ Cleaner fish mutualism (i = 0.24)
 - ✓ Social media (i = 1.60)
 - ✓ Critical threshold boundary
 - ✓ Uncertainty quantification
@@ -220,8 +220,8 @@ Please see CONTRIBUTING.md (coming soon) for guidelines.
 If you use MELV-Core in your research, please cite:
 
 ```
-Evans, L. (2026). Blueprint for Harmony: Why Cooperation Is Nature's Law.
-  Includes MELV-Core software: https://github.com/NaturesHolismMELV/melv-core
+Osman, Z. (2026). Blueprint for Harmony: Why Cooperation Is Nature's Law.
+  Includes MELV-Core software: https://github.com/YOUR-USERNAME/melv-core
 ```
 
 ## License
