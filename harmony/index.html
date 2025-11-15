@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELV Mathematical Evolution Simulator | By Zaid Laurence Evans</title>
+    <meta name="description" content="Interactive mathematical simulator proving cooperation beats competition. Real-time chaos → cooperation evolution using Lotka-Volterra equations. By Zaid Laurence Evans - Nature's Holism 2025.">
+    <meta name="author" content="Zaid Laurence Evans">
+    <meta name="copyright" content="© 2025 Zaid Laurence Evans - Nature's Holism 2025. All rights reserved.">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="MELV Mathematical Evolution Simulator - Cooperation Beats Competition">
+    <meta property="og:description" content="Interactive proof that cooperation beats competition using mathematical evolution. By Zaid Laurence Evans - Nature's Holism 2025.">
+    <meta property="og:type" content="website">
+    <meta property="og:author" content="Zaid Laurence Evans">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js for better mobile compatibility -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+    <style>
+        /* Custom slider styles */
+        .slider-blue::-webkit-slider-thumb {
+            appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #3B82F6;
+            cursor: pointer;
+            border: 2px solid #1E40AF;
+        }
+        
+        .slider-red::-webkit-slider-thumb {
+            appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #EF4444;
+            cursor: pointer;
+            border: 2px solid #DC2626;
+        }
+        
+        .slider-purple::-webkit-slider-thumb {
+            appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #8B5CF6;
+            cursor: pointer;
+            border: 2px solid #7C3AED;
+        }
+
+        /* Chaos indicator styles */
+        .chaos-pulse {
+            animation: chaos-pulse 1s ease-in-out infinite alternate;
+        }
+        
+        @keyframes chaos-pulse {
+            from { opacity: 0.7; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.05); }
+        }
+
+        /* Chart container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Mobile-first responsive design */
+        .mobile-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50 p-2 md:p-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-4 md:mb-8">
+                <h1 class="text-2xl md:text-6xl font-bold text-gray-900 mb-2 md:mb-4">
+                    🧮 MELV Mathematical Evolution
+                </h1>
+                <p class="text-base md:text-xl text-gray-700 mb-2 md:mb-4">
+                    Competition → Cooperation Evolution | Mathematical Consciousness Emergence
+                </p>
+                <div class="text-xs md:text-sm text-gray-600 mb-3">
+                    <strong>Mathematical Model:</strong> dx₁/dt = r₁x₁(1-(x₁+i₁₂x₂)/K₁) | dx₂/dt = r₂x₂(1-(x₂+i₂₁x₁)/K₂)
+                </div>
+                <div class="flex flex-wrap justify-center gap-2 text-xs md:text-sm">
+                    <a href="https://github.com/NaturesHolismMELV/melv-core" target="_blank" 
+                       class="px-3 py-1.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        📚 MELV-Core: Calculation Tutorials
+                    </a>
+                    <a href="https://mybinder.org/v2/gh/NaturesHolismMELV/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb" target="_blank"
+                       class="px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                        🎓 Interactive Notebook
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mode Selection - Enhanced with Cooperation and Mutualism -->
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-4 md:mb-6">
+                <button id="mutualism-mode" class="mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:bg-green-50">
+                    💚 MUTUALISM
+                </button>
+                <button id="cooperation-mode" class="mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:bg-blue-50">
+                    🤝 COOPERATION
+                </button>
+                <button id="chaos-mode" class="mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-blue-600 border-2 border-blue-600 text-white shadow-lg scale-105">
+                    ⚡🎲 CHAOS
+                </button>
+                <button id="war-mode" class="mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-red-500 hover:bg-red-50">
+                    ⚔️ WAR
+                </button>
+                <button id="ai-mode" class="mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-purple-500 hover:bg-purple-50">
+                    🧠 AI
+                </button>
+            </div>
+
+            <!-- Status Panel -->
+            <div id="status-panel" class="bg-gradient-to-r from-green-500 to-blue-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-green-200">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2 md:gap-4">
+                        <span id="mode-icon" class="text-2xl">⚡</span>
+                        <div>
+                            <h2 id="mode-title" class="text-lg md:text-2xl font-bold text-white">CHAOS HUNTER MODE</h2>
+                            <p id="system-status" class="text-sm md:text-base text-white/90">STABLE</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div id="chaos-level" class="text-2xl md:text-4xl font-bold text-white">0%</div>
+                        <div class="text-xs md:text-sm text-white/80">CHAOS LEVEL</div>
+                    </div>
+                </div>
+                
+                <div class="w-full bg-white/20 rounded-full h-2 md:h-3 mt-3 md:mt-4">
+                    <div id="chaos-bar" class="bg-white h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                </div>
+                
+                <div class="text-xs md:text-sm text-white/70 mt-2 md:mt-3 flex justify-between">
+                    <span>STABLE</span>
+                    <span>CHAOTIC</span>
+                    <span>EXTINCTION</span>
+                </div>
+                
+                <div id="mode-stats" class="mt-3 md:mt-4">
+                    <div class="mobile-grid text-xs md:text-sm">
+                        <div>
+                            <div class="text-white/70">Species 1</div>
+                            <div id="pop1" class="text-white font-bold">25.0</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Species 2</div>
+                            <div id="pop2" class="text-white font-bold">25.0</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Cooperation Level</div>
+                            <div id="cooperation-level" class="text-white font-bold">85%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="bg-white border border-gray-200 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md">
+                <div class="flex flex-wrap gap-2 md:gap-4 justify-center">
+                    <button id="play-pause-btn" class="px-3 md:px-6 py-2 md:py-3 rounded-lg text-white transition-colors flex items-center text-sm md:text-base bg-green-600 hover:bg-green-700">
+                        ▶️ START
+                    </button>
+                    
+                    <button id="reset-btn" class="px-3 md:px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white transition-colors flex items-center text-sm md:text-base">
+                        🔄 RESET
+                    </button>
+
+                    <button id="slider-lock-btn" class="px-3 md:px-4 py-2 rounded-lg text-white transition-colors flex items-center text-sm md:text-base bg-gray-600 hover:bg-gray-700">
+                        🔒 UNLOCK SLIDERS
+                    </button>
+                    
+                    <button id="speed-btn" class="px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white transition-colors flex items-center text-sm md:text-base">
+                        ⏩ 1x SPEED
+                    </button>
+                </div>
+            </div>
+
+            <!-- Evolution Chart -->
+            <div class="bg-white border border-gray-200 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md">
+                <h3 class="text-lg md:text-2xl font-bold text-gray-900 mb-3 md:mb-6">📈 Live Mathematical Evolution</h3>
+                
+                <div class="chart-container">
+                    <canvas id="evolution-chart"></canvas>
+                </div>
+                
+                <div class="text-center text-gray-600 mt-2 text-xs md:text-sm">
+                    <span class="text-blue-600">■</span> Species 1 (Blue) | 
+                    <span class="text-red-600"> ■</span> Species 2 (Red) | 
+                    Live Mathematical Evolution
+                    <span id="chaos-warning" class="text-yellow-600 ml-2" style="display: none;">⚡ EXPECT WILD FLUCTUATIONS!</span>
+                </div>
+            </div>
+
+            <!-- Parameter Controls -->
+            <div class="bg-white border border-gray-200 rounded-xl p-4 md:p-6 shadow-md">
+                <h3 class="text-lg md:text-2xl font-bold text-gray-900 mb-4 md:mb-6">🎮 Live Parameter Control</h3>
+                
+                <div id="lock-warning" class="bg-red-50 border border-red-200 rounded-lg p-2 md:p-3 mb-4 md:mb-6">
+                    <div class="flex items-center text-red-700 text-xs md:text-sm">
+                        <span class="mr-2">🔒</span>
+                        <strong>Mobile-Friendly:</strong> Sliders are locked to prevent accidental changes while scrolling. Click "UNLOCK SLIDERS" above to adjust parameters.
+                    </div>
+                </div>
+                
+                <div class="mobile-grid">
+                    <!-- Species 1 Parameters -->
+                    <div class="space-y-4 md:space-y-6">
+                        <h4 class="text-base md:text-xl font-bold text-blue-600">🔵 Species 1 (Blue)</h4>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm md:text-base">
+                                Growth Rate (r₁): <span id="r1-value">0.1</span>
+                            </label>
+                            <input id="r1-slider" type="range" min="0.01" max="0.5" step="0.01" value="0.1" disabled
+                                   class="w-full h-2 md:h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-blue opacity-50 cursor-not-allowed">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm md:text-base">
+                                Carrying Capacity (K₁): <span id="k1-value">50</span>
+                            </label>
+                            <input id="k1-slider" type="range" min="10" max="100" step="5" value="50" disabled
+                                   class="w-full h-2 md:h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-blue opacity-50 cursor-not-allowed">
+                        </div>
+                    </div>
+                    
+                    <!-- Species 2 Parameters -->
+                    <div class="space-y-4 md:space-y-6">
+                        <h4 class="text-base md:text-xl font-bold text-red-600">🔴 Species 2 (Red)</h4>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm md:text-base">
+                                Growth Rate (r₂): <span id="r2-value">0.1</span>
+                            </label>
+                            <input id="r2-slider" type="range" min="0.01" max="0.5" step="0.01" value="0.1" disabled
+                                   class="w-full h-2 md:h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-red opacity-50 cursor-not-allowed">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm md:text-base">
+                                Carrying Capacity (K₂): <span id="k2-value">50</span>
+                            </label>
+                            <input id="k2-slider" type="range" min="10" max="100" step="5" value="50" disabled
+                                   class="w-full h-2 md:h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-red opacity-50 cursor-not-allowed">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Competition Parameters -->
+                <div class="mt-6 md:mt-8">
+                    <h4 class="text-base md:text-xl font-bold text-purple-600 mb-4 md:mb-6">⚔️ Interaction Matrix (Key to All Dynamics!)</h4>
+                    
+                    <div class="mobile-grid">
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm md:text-base">
+                                Interaction i₁₂: <span id="i12-value">1.2</span> <span class="text-orange-600">← Changes by mode!</span>
+                            </label>
+                            <input id="i12-slider" type="range" min="-0.5" max="5.0" step="0.1" value="1.2" disabled
+                                   class="w-full h-2 md:h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-purple opacity-50 cursor-not-allowed">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-700 mb-2 text-sm md:text-base">
+                                Interaction i₂₁: <span id="i21-value">1.1</span> <span class="text-orange-600">← Changes by mode!</span>
+                            </label>
+                            <input id="i21-slider" type="range" min="-0.5" max="5.0" step="0.1" value="1.1" disabled
+                                   class="w-full h-2 md:h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-purple opacity-50 cursor-not-allowed">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3 md:mt-4 p-2 md:p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                        <p class="text-blue-800 text-xs md:text-sm">
+                            <strong>🧮 Mathematical Framework:</strong><br>
+                            <strong>💚 i < 0:</strong> Mutualism (species enhance each other)<br>
+                            <strong>🤝 0 < i < 1:</strong> Cooperation (reduced interference)<br>
+                            <strong>⚔️ i > 1:</strong> Competition (intense rivalry)<br>
+                            <strong>⚡🎲 Chaos:</strong> Randomized parameters each time - unpredictable outcomes!<br>
+                            <strong>Mathematical rule:</strong> i₁₂ × i₂₁ > 4 creates chaotic dynamics
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer with Strong Attribution -->
+            <div class="text-center text-gray-600 text-xs md:text-sm mt-4 md:mt-8 bg-white border border-gray-200 rounded-xl p-4 shadow-md">
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+                    <p class="text-blue-800 font-bold">© 2025 Zaid Laurence Evans - Nature's Holism 2025. All Rights Reserved.</p>
+                    <p class="text-blue-700 text-xs">Original MELV Framework Creator | Cape Town, South Africa | Deployed June 28, 2025</p>
+                </div>
+                
+                <p><strong>MELV (Mathematical Evolution of Life and Volition)</strong> | Competition → Cooperation → Consciousness</p>
+                <p>Built with Vanilla JavaScript + Chart.js | Authentic Mathematical Evolution Theory</p>
+                <p class="mt-2">🧮 <em>"Where consciousness emerges from competitive mathematics evolving into cooperative mutualism"</em> 🌱</p>
+                
+                <div class="mt-3 pt-3 border-t border-gray-200">
+                    <p><strong>Framework by Zaid Laurence Evans • Nature's Holism 2025</strong></p>
+                    <p class="text-gray-500">Mathematical framework for conscious evolution through ancient wisdom and modern science</p>
+                </div>
+                
+                <div class="mt-3 pt-3 border-t border-gray-200 text-xs">
+                    <p class="text-gray-500">
+                        <strong>Attribution Notice:</strong> This MELV simulation represents original work by Zaid Laurence Evans. 
+                        Any use, modification, or distribution must include clear attribution to the original creator.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state
+        let isRunning = false;
+        let currentTime = 0;
+        let populations = { x1: 25, x2: 25 };
+        let speed = 1;
+        let mode = 'chaos';
+        let sliderLock = true;
+        let data = [];
+        let chart;
+        let animationId;
+        
+        // Parameters
+        let params = {
+            r1: 0.1,
+            r2: 0.1,
+            k1: 50,
+            k2: 50,
+            i12: 1.2,
+            i21: 1.1
+        };
+        
+        // Analytics
+        let chaosLevel = 0;
+        let systemStatus = 'STABLE';
+        let alertLevel = 0;
+        
+        const maxTime = 50;
+
+        // Initialize Chart
+        function initChart() {
+            const ctx = document.getElementById('evolution-chart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Species 1',
+                        data: [],
+                        borderColor: '#3B82F6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.3)',
+                        fill: true,
+                        tension: 0
+                    }, {
+                        label: 'Species 2',
+                        data: [],
+                        borderColor: '#EF4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.3)',
+                        fill: true,
+                        tension: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Time',
+                                color: '#6B7280'
+                            },
+                            grid: {
+                                color: '#E5E7EB'
+                            },
+                            ticks: {
+                                color: '#6B7280'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Population',
+                                color: '#6B7280'
+                            },
+                            grid: {
+                                color: '#E5E7EB'
+                            },
+                            ticks: {
+                                color: '#6B7280'
+                            }
+                        }
+                    },
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    }
+                }
+            });
+        }
+
+        // Simulation step with MELV cooperation evolution
+        function simulationStep() {
+            if (currentTime >= maxTime) {
+                stopSimulation();
+                return;
+            }
+
+            const dt = 0.1;
+            let { x1, x2 } = populations;
+            
+            // === MELV CORE PRINCIPLE: Competition → Cooperation Evolution ===
+            // As system matures, competition coefficients can decrease (cooperation emerges)
+            let dynamicI12 = params.i12;
+            let dynamicI21 = params.i21;
+            
+            // Cooperation emergence over time (key MELV principle)
+            if (currentTime > 10) {
+                const maturityFactor = Math.min(1, (currentTime - 10) / 20);
+                const balanceStability = 1 - Math.abs(x1 - x2) / (x1 + x2);
+                
+                // When populations are balanced and system is mature, cooperation can emerge
+                if (balanceStability > 0.7 && mode === 'chaos') {
+                    const cooperationFactor = maturityFactor * balanceStability * 0.3;
+                    dynamicI12 = Math.max(0.1, params.i12 - cooperationFactor);
+                    dynamicI21 = Math.max(0.1, params.i21 - cooperationFactor);
+                }
+            }
+            
+            // Modified Lotka-Volterra with MUTUALISM potential
+            // When competition coefficients drop below 1, species can help each other
+            let mutualisticBonus1 = 0;
+            let mutualisticBonus2 = 0;
+            
+            if (dynamicI12 < 0 || dynamicI21 < 0) {
+                // Mutualistic interactions: species help each other
+                const mutualismStrength = Math.abs(Math.min(dynamicI12, dynamicI21)) * 0.1;
+                mutualisticBonus1 = mutualismStrength * x2 * params.r1;
+                mutualisticBonus2 = mutualismStrength * x1 * params.r2;
+            }
+            
+            // Core equations with cooperation/mutualism dynamics
+            const dx1dt = params.r1 * x1 * (1 - (x1 + dynamicI12 * x2) / params.k1) + mutualisticBonus1;
+            const dx2dt = params.r2 * x2 * (1 - (x2 + dynamicI21 * x1) / params.k2) + mutualisticBonus2;
+            
+            // Environmental stochasticity (reduced in cooperative systems)
+            const competition = Math.abs(dynamicI12 * dynamicI21);
+            const cooperationLevel = calculateCooperationLevel();
+            const noiseReduction = cooperationLevel / 100; // More cooperation = less noise
+            const baseNoiseLevel = Math.max(0.02, competition * 0.08);
+            const noiseLevel = baseNoiseLevel * (1 - noiseReduction * 0.7);
+            
+            const chaosAmplifier = competition > 4 ? 1 + (competition - 4) * 0.3 : 1;
+            
+            const noise1 = (Math.random() - 0.5) * noiseLevel * x1 * chaosAmplifier;
+            const noise2 = (Math.random() - 0.5) * noiseLevel * x2 * chaosAmplifier;
+            
+            // Shock events (rare in cooperative systems)
+            const shockChance = (competition > 6 && cooperationLevel < 30) ? 0.05 : 0;
+            const shock1 = Math.random() < shockChance ? (Math.random() - 0.5) * x1 * 0.3 : 0;
+            const shock2 = Math.random() < shockChance ? (Math.random() - 0.5) * x2 * 0.3 : 0;
+            
+            x1 += (dx1dt + noise1 + shock1) * dt;
+            x2 += (dx2dt + noise2 + shock2) * dt;
+            
+            x1 = Math.max(0.001, x1);
+            x2 = Math.max(0.001, x2);
+            
+            populations = { x1, x2 };
+            currentTime += dt;
+
+            // Update data
+            const newPoint = {
+                time: Math.round(currentTime * 10) / 10,
+                species1: Math.round(x1 * 100) / 100,
+                species2: Math.round(x2 * 100) / 100
+            };
+            
+            data.push(newPoint);
+            if (data.length > 150) {
+                data.shift();
+            }
+
+            // Update chart safely
+            if (chart && chart.data) {
+                chart.data.labels = data.map(d => d.time);
+                chart.data.datasets[0].data = data.map(d => d.species1);
+                chart.data.datasets[1].data = data.map(d => d.species2);
+                chart.update('none');
+            }
+
+            // Update analytics and display
+            if (data.length > 10 && data.length % 3 === 0) {
+                calculateAnalytics();
+            }
+
+            // Update display every frame for smooth updates
+            updateModeStats();
+        }
+
+        // Calculate analytics
+        function calculateAnalytics() {
+            if (data.length < 10) return;
+            
+            const recent = data.slice(-10);
+            const avgPop1 = recent.reduce((sum, d) => sum + d.species1, 0) / recent.length;
+            const avgPop2 = recent.reduce((sum, d) => sum + d.species2, 0) / recent.length;
+            const competition = Math.abs(params.i12 * params.i21);
+            
+            const variability = recent.reduce((sum, d, i, arr) => {
+                if (i === 0) return 0;
+                return sum + Math.abs(d.species1 - arr[i-1].species1) + Math.abs(d.species2 - arr[i-1].species2);
+            }, 0);
+            
+            const extinction = avgPop1 < 0.1 || avgPop2 < 0.1;
+            const highVariability = variability > 3;
+            
+            let chaos = 0;
+            let status = 'STABLE';
+            
+            if (mode === 'mutualism') {
+                chaos = Math.max(0, 15 - variability * 5);
+                status = 'MUTUALISTIC HARMONY';
+            } else if (mode === 'cooperation') {
+                chaos = Math.max(0, 25 - variability * 3);
+                status = 'COOPERATIVE STABILITY';
+            } else if (competition > 8) {
+                chaos = Math.min(98, Math.round(variability * 20 + competition * 12));
+                status = 'EXTREME CHAOS DETECTED';
+            } else if (extinction || highVariability) {
+                chaos = Math.min(90, Math.round(variability * 12 + competition * 15));
+                status = extinction ? 'SPECIES EXTINCTION IMMINENT' : 'CHAOTIC OSCILLATIONS';
+            } else if (competition > 4 || variability > 1.5) {
+                chaos = Math.min(75, Math.round(variability * 15 + competition * 18));
+                status = 'HIGH COMPETITION ZONE';
+            } else if (competition > 2 || variability > 0.8) {
+                chaos = Math.min(50, Math.round(variability * 20 + competition * 10));
+                status = 'MODERATE INSTABILITY';
+            }
+            
+            chaosLevel = chaos;
+            systemStatus = status;
+            
+            updateStatusPanel();
+        }
+
+        // Safe element access with error checking
+        function safeGetElement(id) {
+            const element = document.getElementById(id);
+            if (!element) {
+                console.warn(`Element with ID '${id}' not found`);
+                return null;
+            }
+            return element;
+        }
+
+        // Safe text content update
+        function safeUpdateText(id, text) {
+            const element = safeGetElement(id);
+            if (element) {
+                element.textContent = text;
+            }
+        }
+
+        // Safe innerHTML update
+        function safeUpdateHTML(id, html) {
+            const element = safeGetElement(id);
+            if (element) {
+                element.innerHTML = html;
+            }
+        }
+
+        // Update display (mode-aware)
+        function updateDisplay() {
+            // All display updates are now handled by updateModeStats()
+            // This prevents trying to update elements that don't exist
+        }
+
+        // Update status panel
+        function updateStatusPanel() {
+            safeUpdateText('chaos-level', chaosLevel + '%');
+            safeUpdateText('system-status', systemStatus);
+            
+            const chaosBar = safeGetElement('chaos-bar');
+            if (chaosBar) {
+                chaosBar.style.width = chaosLevel + '%';
+            }
+            
+            const statusPanel = safeGetElement('status-panel');
+            const chaosWarning = safeGetElement('chaos-warning');
+            
+            if (statusPanel) {
+                if (mode === 'mutualism') {
+                    statusPanel.className = 'bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-green-200';
+                } else if (mode === 'cooperation') {
+                    statusPanel.className = 'bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-blue-200';
+                } else if (chaosLevel > 80) {
+                    statusPanel.className = 'bg-gradient-to-r from-red-500 to-orange-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-red-200 chaos-pulse';
+                } else if (chaosLevel > 60) {
+                    statusPanel.className = 'bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-orange-200';
+                } else if (chaosLevel > 40) {
+                    statusPanel.className = 'bg-gradient-to-r from-yellow-500 to-green-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-yellow-200';
+                } else {
+                    statusPanel.className = 'bg-gradient-to-r from-green-500 to-blue-500 rounded-xl p-3 md:p-6 mb-4 md:mb-6 shadow-md border border-green-200';
+                }
+            }
+            
+            if (chaosWarning) {
+                chaosWarning.style.display = chaosLevel > 70 ? 'inline' : 'none';
+            }
+        }
+
+        // Animation loop
+        function animate() {
+            simulationStep();
+            if (isRunning) {
+                animationId = setTimeout(animate, 50 / speed);
+            }
+        }
+
+        // Start simulation
+        function startSimulation() {
+            isRunning = true;
+            document.getElementById('play-pause-btn').innerHTML = '⏸️ PAUSE';
+            document.getElementById('play-pause-btn').className = 'px-3 md:px-6 py-2 md:py-3 rounded-lg text-white transition-colors flex items-center text-sm md:text-base bg-orange-600 hover:bg-orange-700';
+            animate();
+        }
+
+        // Stop simulation
+        function stopSimulation() {
+            isRunning = false;
+            document.getElementById('play-pause-btn').innerHTML = '▶️ START';
+            document.getElementById('play-pause-btn').className = 'px-3 md:px-6 py-2 md:py-3 rounded-lg text-white transition-colors flex items-center text-sm md:text-base bg-green-600 hover:bg-green-700';
+            if (animationId) {
+                clearTimeout(animationId);
+            }
+        }
+
+        // Reset simulation
+        function resetSimulation() {
+            stopSimulation();
+            currentTime = 0;
+            populations = { x1: 25, x2: 25 };
+            data = [];
+            chaosLevel = 0;
+            systemStatus = 'STABLE';
+            sliderLock = true;
+            
+            if (chart && chart.data) {
+                chart.data.labels = [];
+                chart.data.datasets[0].data = [];
+                chart.data.datasets[1].data = [];
+                chart.update();
+            }
+            
+            updateDisplay();
+            updateStatusPanel();
+            updateSliderLock();
+        }
+
+        // Toggle slider lock
+        function toggleSliderLock() {
+            sliderLock = !sliderLock;
+            updateSliderLock();
+        }
+
+        // Update slider lock
+        function updateSliderLock() {
+            const sliders = ['r1-slider', 'r2-slider', 'k1-slider', 'k2-slider', 'i12-slider', 'i21-slider'];
+            const lockBtn = document.getElementById('slider-lock-btn');
+            const lockWarning = document.getElementById('lock-warning');
+            
+            sliders.forEach(id => {
+                const slider = document.getElementById(id);
+                if (slider) {
+                    slider.disabled = sliderLock;
+                    if (sliderLock) {
+                        slider.className = slider.className.replace('opacity-50 cursor-not-allowed', '') + ' opacity-50 cursor-not-allowed';
+                    } else {
+                        slider.className = slider.className.replace(' opacity-50 cursor-not-allowed', '');
+                    }
+                }
+            });
+            
+            if (lockBtn) {
+                lockBtn.innerHTML = sliderLock ? '🔒 UNLOCK SLIDERS' : '🔓 LOCK SLIDERS';
+                lockBtn.className = sliderLock 
+                    ? 'px-3 md:px-4 py-2 rounded-lg text-white transition-colors flex items-center text-sm md:text-base bg-gray-600 hover:bg-gray-700'
+                    : 'px-3 md:px-4 py-2 rounded-lg text-white transition-colors flex items-center text-sm md:text-base bg-green-600 hover:bg-green-700';
+            }
+            
+            if (lockWarning) {
+                lockWarning.style.display = sliderLock ? 'block' : 'none';
+            }
+        }
+
+        // Change speed
+        function changeSpeed() {
+            speed = speed >= 5 ? 1 : speed + 1;
+            const speedBtn = document.getElementById('speed-btn');
+            if (speedBtn) {
+                speedBtn.innerHTML = `⏩ ${speed}x SPEED`;
+            }
+        }
+
+        // Change mode with appropriate parameters - ENHANCED
+        function changeMode(newMode) {
+            mode = newMode;
+            let chaosPopulations = null; // Store chaos populations to apply after reset
+            
+            // Set mode-specific parameters for clear demonstrations
+            if (newMode === 'mutualism') {
+                // Negative interaction = mutual enhancement
+                params.i12 = -0.3;
+                params.i21 = -0.2;
+                params.r1 = 0.12;
+                params.r2 = 0.10;
+            } else if (newMode === 'cooperation') {
+                // 0 < i < 1 = reduced interference, stable coexistence
+                params.i12 = 0.4;
+                params.i21 = 0.5;
+                params.r1 = 0.15;
+                params.r2 = 0.13;
+            } else if (newMode === 'chaos') {
+                // High competition with dramatic oscillations (i12 * i21 > 4)
+                // Add randomization for unpredictable outcomes
+                const baseCompetition = 2.0 + Math.random() * 0.8; // 2.0 to 2.8
+                const asymmetry = (Math.random() - 0.5) * 0.6; // -0.3 to +0.3
+                
+                params.i12 = baseCompetition + asymmetry;
+                params.i21 = baseCompetition - asymmetry;
+                
+                // Randomize growth rates slightly for more chaos
+                params.r1 = 0.18 + Math.random() * 0.08; // 0.18 to 0.26
+                params.r2 = 0.18 + Math.random() * 0.08; // 0.18 to 0.26
+                
+                // Store randomized starting populations for after reset
+                chaosPopulations = {
+                    x1: 20 + Math.random() * 15, // 20 to 35
+                    x2: 20 + Math.random() * 15  // 20 to 35
+                };
+            } else if (newMode === 'war') {
+                // Extreme competition - potential extinction
+                params.i12 = 4.0;
+                params.i21 = 3.8;
+                params.r1 = 0.25;
+                params.r2 = 0.23;
+            } else if (newMode === 'ai') {
+                // Predictable, controlled dynamics
+                params.i12 = 0.8;
+                params.i21 = 0.9;
+                params.r1 = 0.12;
+                params.r2 = 0.14;
+            }
+            
+            // Update sliders to match new parameters
+            const paramMapping = {
+                'r1-slider': params.r1,
+                'r2-slider': params.r2,
+                'k1-slider': params.k1,
+                'k2-slider': params.k2,
+                'i12-slider': params.i12,
+                'i21-slider': params.i21
+            };
+            
+            Object.entries(paramMapping).forEach(([sliderId, value]) => {
+                const slider = safeGetElement(sliderId);
+                if (slider) {
+                    slider.value = value;
+                }
+                // Update displayed value
+                const valueId = sliderId.replace('-slider', '-value');
+                safeUpdateText(valueId, value.toString());
+            });
+            
+            // Update mode buttons safely
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                if (btn) {
+                    if (btn.id === 'mutualism-mode') {
+                        btn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-green-500 hover:bg-green-50';
+                    } else if (btn.id === 'cooperation-mode') {
+                        btn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:bg-blue-50';
+                    } else if (btn.id === 'war-mode') {
+                        btn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-red-500 hover:bg-red-50';
+                    } else if (btn.id === 'ai-mode') {
+                        btn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-purple-500 hover:bg-purple-50';
+                    } else {
+                        btn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-white border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:bg-blue-50';
+                    }
+                }
+            });
+            
+            const activeBtn = safeGetElement(newMode + '-mode');
+            if (activeBtn) {
+                if (newMode === 'mutualism') {
+                    activeBtn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-green-600 border-2 border-green-600 text-white shadow-lg scale-105';
+                } else if (newMode === 'cooperation') {
+                    activeBtn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-blue-600 border-2 border-blue-600 text-white shadow-lg scale-105';
+                } else if (newMode === 'war') {
+                    activeBtn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-red-600 border-2 border-red-600 text-white shadow-lg scale-105';
+                } else if (newMode === 'ai') {
+                    activeBtn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-purple-600 border-2 border-purple-600 text-white shadow-lg scale-105';
+                } else {
+                    activeBtn.className = 'mode-btn px-2 md:px-4 py-2 md:py-3 rounded-lg transition-all flex items-center gap-1 text-xs md:text-sm bg-blue-600 border-2 border-blue-600 text-white shadow-lg scale-105';
+                }
+            }
+            
+            // Update mode display
+            const modeConfig = {
+                'mutualism': {
+                    icon: '💚',
+                    title: 'MUTUALISTIC HARMONY',
+                    description: 'Species Enhance Each Other (i < 0)'
+                },
+                'cooperation': {
+                    icon: '🤝',
+                    title: 'COOPERATIVE COEXISTENCE',
+                    description: 'Reduced Interference (0 < i < 1)'
+                },
+                'chaos': {
+                    icon: '⚡',
+                    title: 'CHAOTIC COMPETITION',
+                    description: 'Randomized Mathematical Chaos - Click Again for Different Outcome!'
+                },
+                'war': {
+                    icon: '⚔️',
+                    title: 'SPECIES WARFARE',
+                    description: 'Extreme Competition - Potential Extinction'
+                },
+                'ai': {
+                    icon: '🧠',
+                    title: 'AI PREDICTION MODE',
+                    description: 'Controlled, Predictable Dynamics'
+                }
+            };
+            
+            safeUpdateText('mode-icon', modeConfig[newMode].icon);
+            safeUpdateText('mode-title', modeConfig[newMode].title);
+            
+            // Reset simulation to show new parameters immediately
+            resetSimulation();
+            
+            // Apply chaos-specific randomized populations after reset
+            if (newMode === 'chaos' && chaosPopulations) {
+                populations = chaosPopulations;
+            }
+            
+            updateModeStats();
+        }
+
+        // Update mode-specific stats - ENHANCED
+        function updateModeStats() {
+            if (mode === 'mutualism') {
+                const mutualBenefit = Math.abs(params.i12) + Math.abs(params.i21);
+                const growthBoost = mutualBenefit * 20;
+                const stability = 'ENHANCED';
+                
+                safeUpdateHTML('mode-stats', `
+                    <div class="mobile-grid text-xs md:text-sm">
+                        <div>
+                            <div class="text-white/70">Mutual Enhancement</div>
+                            <div class="text-white font-bold">+${growthBoost.toFixed(1)}%</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">System Stability</div>
+                            <div class="text-white font-bold">${stability}</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Benefit Factor</div>
+                            <div class="text-white font-bold">${mutualBenefit.toFixed(1)}</div>
+                        </div>
+                    </div>
+                `);
+            } else if (mode === 'cooperation') {
+                const cooperationLevel = calculateCooperationLevel();
+                const efficiency = Math.max(70, 100 - (params.i12 + params.i21) * 15);
+                const balance = 'OPTIMAL';
+                
+                safeUpdateHTML('mode-stats', `
+                    <div class="mobile-grid text-xs md:text-sm">
+                        <div>
+                            <div class="text-white/70">Cooperation Level</div>
+                            <div class="text-white font-bold">${cooperationLevel}%</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Resource Efficiency</div>
+                            <div class="text-white font-bold">${efficiency.toFixed(0)}%</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Population Balance</div>
+                            <div class="text-white font-bold">${balance}</div>
+                        </div>
+                    </div>
+                `);
+            } else if (mode === 'war') {
+                const total = populations.x1 + populations.x2;
+                const dominance = total > 0 ? Math.round((populations.x1 / total) * 100) : 50;
+                const competition = params.i12 * params.i21;
+                
+                let winner = 'CONTESTED';
+                let intensity = 'SKIRMISH';
+                
+                if (dominance > 70) winner = 'SPECIES 1 WINNING';
+                else if (dominance < 30) winner = 'SPECIES 2 WINNING';
+                
+                if (competition > 15) intensity = 'TOTAL WAR';
+                else if (competition > 10) intensity = 'MAJOR BATTLE';
+                else if (competition > 6) intensity = 'FIERCE COMBAT';
+                
+                safeUpdateHTML('mode-stats', `
+                    <div class="mobile-grid text-xs md:text-sm">
+                        <div>
+                            <div class="text-white/70">Battle Status</div>
+                            <div class="text-white font-bold">${intensity}</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Current Winner</div>
+                            <div class="text-white font-bold">${winner}</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Dominance</div>
+                            <div class="text-white font-bold">${dominance}% vs ${100-dominance}%</div>
+                        </div>
+                    </div>
+                `);
+            } else if (mode === 'ai') {
+                const competition = params.i12 * params.i21;
+                let outcome = 'STABLE COOPERATION';
+                let confidence = 95;
+                let pattern = 'PREDICTABLE';
+                
+                if (competition > 1) {
+                    outcome = 'MILD COMPETITION';
+                    pattern = 'OSCILLATORY';
+                    confidence = 85;
+                } else if (competition < 0.5) {
+                    outcome = 'ENHANCED COOPERATION';
+                    pattern = 'SYNERGISTIC';
+                    confidence = 98;
+                }
+                
+                safeUpdateHTML('mode-stats', `
+                    <div class="mobile-grid text-xs md:text-sm">
+                        <div>
+                            <div class="text-white/70">Predicted Outcome</div>
+                            <div class="text-white font-bold">${outcome}</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">AI Confidence</div>
+                            <div class="text-white font-bold">${confidence}%</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Evolution Pattern</div>
+                            <div class="text-white font-bold">${pattern}</div>
+                        </div>
+                    </div>
+                `);
+            } else {
+                // Chaos mode - show the randomized parameters
+                const cooperation = calculateCooperationLevel();
+                const competitionProduct = (params.i12 * params.i21).toFixed(1);
+                
+                safeUpdateHTML('mode-stats', `
+                    <div class="mobile-grid text-xs md:text-sm">
+                        <div>
+                            <div class="text-white/70">Species 1</div>
+                            <div id="pop1" class="text-white font-bold">${populations.x1.toFixed(1)}</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Species 2</div>
+                            <div id="pop2" class="text-white font-bold">${populations.x2.toFixed(1)}</div>
+                        </div>
+                        <div>
+                            <div class="text-white/70">Competition Level</div>
+                            <div id="chaos-display" class="text-white font-bold">${competitionProduct}</div>
+                        </div>
+                    </div>
+                `);
+            }
+        }
+
+        // Calculate cooperation level (MELV core principle)
+        function calculateCooperationLevel() {
+            const avgInteraction = (Math.abs(params.i12) + Math.abs(params.i21)) / 2;
+            
+            if (params.i12 < 0 || params.i21 < 0) {
+                return 95; // Mutualism = highest cooperation
+            } else if (avgInteraction < 1) {
+                return Math.max(60, 85 - avgInteraction * 25);
+            } else if (avgInteraction < 2) {
+                return Math.max(30, 60 - avgInteraction * 15);
+            } else {
+                return Math.max(5, 30 - avgInteraction * 5);
+            }
+        }
+
+        // Update parameter value
+        function updateParam(param, value) {
+            if (!sliderLock) {
+                params[param] = parseFloat(value);
+                const valueElement = document.getElementById(param + '-value');
+                if (valueElement) {
+                    valueElement.textContent = value;
+                }
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initChart();
+            updateSliderLock();
+            
+            // Control buttons
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            if (playPauseBtn) {
+                playPauseBtn.addEventListener('click', () => {
+                    if (isRunning) {
+                        stopSimulation();
+                    } else {
+                        startSimulation();
+                    }
+                });
+            }
+            
+            const resetBtn = document.getElementById('reset-btn');
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetSimulation);
+            }
+            
+            const sliderLockBtn = document.getElementById('slider-lock-btn');
+            if (sliderLockBtn) {
+                sliderLockBtn.addEventListener('click', toggleSliderLock);
+            }
+            
+            const speedBtn = document.getElementById('speed-btn');
+            if (speedBtn) {
+                speedBtn.addEventListener('click', changeSpeed);
+            }
+            
+            // Mode buttons - ENHANCED
+            const mutualismBtn = document.getElementById('mutualism-mode');
+            if (mutualismBtn) {
+                mutualismBtn.addEventListener('click', () => changeMode('mutualism'));
+            }
+            
+            const cooperationBtn = document.getElementById('cooperation-mode');
+            if (cooperationBtn) {
+                cooperationBtn.addEventListener('click', () => changeMode('cooperation'));
+            }
+            
+            const chaosBtn = document.getElementById('chaos-mode');
+            if (chaosBtn) {
+                chaosBtn.addEventListener('click', () => changeMode('chaos'));
+            }
+            
+            const warBtn = document.getElementById('war-mode');
+            if (warBtn) {
+                warBtn.addEventListener('click', () => changeMode('war'));
+            }
+            
+            const aiBtn = document.getElementById('ai-mode');
+            if (aiBtn) {
+                aiBtn.addEventListener('click', () => changeMode('ai'));
+            }
+            
+            // Parameter sliders
+            const r1Slider = document.getElementById('r1-slider');
+            if (r1Slider) {
+                r1Slider.addEventListener('input', (e) => updateParam('r1', e.target.value));
+            }
+            
+            const r2Slider = document.getElementById('r2-slider');
+            if (r2Slider) {
+                r2Slider.addEventListener('input', (e) => updateParam('r2', e.target.value));
+            }
+            
+            const k1Slider = document.getElementById('k1-slider');
+            if (k1Slider) {
+                k1Slider.addEventListener('input', (e) => updateParam('k1', e.target.value));
+            }
+            
+            const k2Slider = document.getElementById('k2-slider');
+            if (k2Slider) {
+                k2Slider.addEventListener('input', (e) => updateParam('k2', e.target.value));
+            }
+            
+            const i12Slider = document.getElementById('i12-slider');
+            if (i12Slider) {
+                i12Slider.addEventListener('input', (e) => updateParam('i12', e.target.value));
+            }
+            
+            const i21Slider = document.getElementById('i21-slider');
+            if (i21Slider) {
+                i21Slider.addEventListener('input', (e) => updateParam('i21', e.target.value));
+            }
+        });
+    </script>
+</body>
+</html>
