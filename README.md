@@ -1,7 +1,7 @@
 # MELV-Core: Mathematical Ecology of Cooperation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/YOUR-USERNAME/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/NaturesHolismMELV/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
 
 **Open-source tools for calculating cooperation dynamics**
 
@@ -103,7 +103,7 @@ Click the Binder badge above—runs in your browser with zero installation!
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR-USERNAME/melv-core.git
+git clone https://github.com/NaturesHolismMELV/melv-core.git
 cd melv-core
 
 # Install package
@@ -116,7 +116,7 @@ pip install -e ".[tutorials]"
 ### Option 3: Just the Package
 
 ```bash
-pip install git+https://github.com/YOUR-USERNAME/melv-core.git
+pip install git+https://github.com/NaturesHolismMELV/melv-core.git
 ```
 
 ## Tutorials
@@ -129,7 +129,7 @@ Interactive introduction covering:
 - Uncertainty quantification
 - Hands-on exploration
 
-[Run in Binder](https://mybinder.org/v2/gh/YOUR-USERNAME/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
+[Run in Binder](https://mybinder.org/v2/gh/NaturesHolismMELV/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)
 
 ## Example Results
 
@@ -221,7 +221,7 @@ If you use MELV-Core in your research, please cite:
 
 ```
 Osman, Z. (2026). Blueprint for Harmony: Why Cooperation Is Nature's Law.
-  Includes MELV-Core software: https://github.com/YOUR-USERNAME/melv-core
+  Includes MELV-Core software: https://github.com/NaturesHolismMELV/melv-core
 ```
 
 ## License
