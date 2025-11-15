@@ -9,7 +9,11 @@ Calculate when cooperation vs. competition emerges using the Modified Energetic 
 
 ## 🚀 Try It Now (Zero Installation)
 
-Click the Binder badge above to launch interactive tutorials in your browser—no installation required!
+**Two ways to explore MELV:**
+
+1. **📊 [Interactive Visual Simulator](https://naturesholismmelv.github.io/harmony/)** - Watch cooperation emerge in real-time! Adjust parameters with sliders and see chaos → cooperation evolution.
+
+2. **🎓 [Calculation Tutorials](https://mybinder.org/v2/gh/NaturesHolismMELV/melv-core/main?filepath=tutorials%2F01_first_calculation.ipynb)** - Learn the mathematics with guided notebooks (click Binder badge above).
 
 ## Quick Start
 
@@ -166,6 +170,26 @@ The framework successfully predicted cooperation emergence with exceptional stat
 - **Organizations**: Team dynamics, inter-departmental collaboration
 - **Social Systems**: Community formation, polarization analysis
 - **AI Governance**: Multi-agent systems, alignment strategies
+
+## 🎮 Interactive Visual Simulator
+
+**Want to see cooperation emerge in real-time?**
+
+Try the [MELV Mathematical Evolution Simulator](https://naturesholismmelv.github.io/harmony/) - a companion web app where you can:
+
+- 🎲 Watch **chaos → cooperation** evolution live
+- 🎛️ Adjust interaction parameters with sliders
+- 📊 See population dynamics in real-time graphs
+- 🧪 Explore different modes: Mutualism, Cooperation, War, AI
+- 🔬 Experiment with Lotka-Volterra equations interactively
+
+**Perfect for:**
+- Visual learners who want to see the math in action
+- Teaching MELV concepts interactively
+- Quick exploration before diving into calculations
+- Demonstrating cooperation emergence to audiences
+
+The simulator complements the tutorials here - use both for complete understanding!
 
 ## Background: The 44-Year Journey
 
