@@ -123,7 +123,7 @@ You now have:
 
 - Documentation: See DEPLOYMENT.md for detailed guide
 - Issues: Use GitHub issues for bug reports
-- Email: zaid@ecotao.com
+- Email: zaid@ecotao.co.za
 
 ---
 
