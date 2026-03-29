@@ -8,7 +8,7 @@
 
 ## MELVcore in One Sentence
 
-MELVcore is a mathematical and computational framework that predicts when cooperation emerges in ecological, social, economic, and multi-agent systems by quantifying the energetic balance between interaction intensity, compatibility, evolutionary maturity, and consciousness acceleration.
+MELVcore is a mathematical and computational framework that predicts when cooperation emerges in ecological, social, economic, and multi-agent systems by quantifying the energetic balance between interaction intensity, compatibility, evolutionary maturity, and the rate of adaptive evolution.
 
 ---
 
@@ -20,7 +20,7 @@ The framework extends classical Lotka–Volterra population dynamics by incorpor
 
 At its core, MELVcore formalizes a simple insight:
 
-> **Cooperation is energetically cheaper than conflict when compatibility is sufficient, evolutionary maturity is high, and consciousness accelerates the optimization of interaction costs.**
+> **Cooperation is energetically cheaper than conflict when compatibility is sufficient, evolutionary maturity is high, and the rate of adaptation accelerates the optimisation of interaction costs.**
 
 This insight holds across species, organisations, markets, and AI agents. Under normal ecological and social parameters, **78% of simulated systems reach cooperative equilibria** — cooperation is the dominant attractor, the energetic basin into which interactive associations naturally settle when interaction costs are allowed to fall below the critical threshold.
 
