@@ -16,7 +16,7 @@ MELVcore is a mathematical and computational framework that predicts when cooper
 
 Cooperation is often treated as a moral preference or evolutionary anomaly, yet across biological and artificial systems it appears with striking regularity. MELVcore reframes cooperation as a **thermodynamic attractor** — the energetic basin into which interactive associations naturally settle when interaction costs fall below a critical threshold.
 
-The framework extends classical Lotka–Volterra population dynamics by incorporating four adaptive variables: interaction intensity (i), compatibility (β), evolutionary maturity (φ), and consciousness acceleration (ε). These additions allow MELVcore to predict not only whether cooperation or competition will emerge, but also the stability, strength, perpetuity, and *speed* of cooperative transitions.
+The framework extends classical Lotka–Volterra population dynamics by incorporating four adaptive variables: interaction intensity (i), compatibility (β), evolutionary maturity (φ), and adaptive evolution rate (ε). These additions allow MELVcore to predict not only whether cooperation or competition will emerge, but also the stability, strength, perpetuity, and *speed* of cooperative transitions.
 
 At its core, MELVcore formalizes a simple insight:
 
@@ -24,7 +24,7 @@ At its core, MELVcore formalizes a simple insight:
 
 This insight holds across species, organisations, markets, and AI agents. Under normal ecological and social parameters, **78% of simulated systems reach cooperative equilibria** — cooperation is the dominant attractor, the energetic basin into which interactive associations naturally settle when interaction costs are allowed to fall below the critical threshold.
 
-MELVcore differs from classical Lotka–Volterra models in one critical respect: where classical LV treats interaction coefficients as **fixed constants**, MELV treats them as **dynamic, adaptive variables** that evolve through the interplay of compatibility (β), evolutionary maturity (φ), and consciousness (ε). This allows the framework to model the *direction* and *rate* of system evolution, not just its current state.
+MELVcore differs from classical Lotka–Volterra models in one critical respect: where classical LV treats interaction coefficients as **fixed constants**, MELV treats them as **dynamic, adaptive variables** that evolve through the interplay of compatibility (β), evolutionary maturity (φ), and adaptive evolution rate (ε). This allows the framework to model the *direction* and *rate* of system evolution, not just its current state.
 
 ---
 
@@ -38,7 +38,7 @@ Cooperation science has three established traditions, each with a blind spot:
 
 **Replicator dynamics** models the spread of cooperative strategies through populations but does not incorporate environmental compatibility, service network coupling, or consciousness as an acceleration mechanism.
 
-MELV addresses what all three lack: a framework in which interaction coefficients are dynamic, cooperation emergence is thermodynamically predicted rather than strategically assumed, compatibility is explicitly modelled through β and the Ω-matrix, and the rate of cooperative transition is governed by a measurable consciousness parameter ε.
+MELV addresses what all three lack: a framework in which interaction coefficients are dynamic, cooperation emergence is thermodynamically predicted rather than strategically assumed, compatibility is explicitly modelled through β and the Ω-matrix, and the rate of cooperative transition is governed by a measurable adaptive evolution parameter ε — which ranges from genetic selection through behavioural adaptation to human consciousness and human-AI collaboration.
 
 For multi-agent AI systems specifically, none of the above traditions provide a governance model grounded in the physics of interaction costs. MELVcore fills that gap — the only agent orchestration framework with a mathematical theory of *why* its architecture produces stable, cooperative behaviour.
 
@@ -48,7 +48,7 @@ For multi-agent AI systems specifically, none of the above traditions provide a 
 | Predicts cooperation? | No | Yes (strategic) | Yes (evolutionary) | Yes (thermodynamic) |
 | Handles compatibility (β)? | No | No | No | Yes |
 | Handles sustainability (φ)? | No | No | No | Yes |
-| Consciousness acceleration (ε)? | No | No | No | Yes |
+| Adaptive evolution rate (ε)? | No | No | No | Yes |
 | Bifurcation threshold? | No | No | No | Yes (i = 1.0) |
 | Service network coupling (Ω)? | No | No | No | Yes |
 | AI governance application? | No | No | No | Yes (AIOS) |
@@ -70,7 +70,7 @@ i₁₂(t) = i₁₂⁰ × (1 − ε × φ(t) × β(t))
 Where:
 - **i₁₂(t)** = interaction intensity at time t (the per capita effect of one species on another's growth rate)
 - **i₁₂⁰** = initial interaction intensity (typically > 1 in competitive systems)
-- **ε (epsilon)** = consciousness acceleration factor — quantifies how rapidly a system can evolve toward cooperation
+- **ε (epsilon)** = adaptation and consciousness acceleration factor — quantifies how rapidly a system can evolve toward cooperation
 - **φ(t)** = perpetuity — evolutionary maturity and long-term sustainability orientation
 - **β(t)** = compatibility — environmental capacity for coexistence and niche partitioning
 
@@ -114,7 +114,7 @@ The **Ω-matrix** (service network matrix) captures invisible dependencies betwe
 
 φ(t) measures how long species have coexisted and coevolved, reflecting the degree to which competitive overlap has been reduced through evolutionary specialisation. φ approaches 1.0 in mature ecosystems. It is conceptually distinct from β: φ captures *how* species have optimised (e.g. giraffes, zebras, and gazelles partitioning habitat by feeding height), while β captures *what enables* that optimisation (e.g. a stable, resource-rich savanna).
 
-### ε — Consciousness Acceleration Factor
+### ε — Adaptation and Consciousness Acceleration Factor
 
 ε quantifies the rate at which a system can evolve toward cooperation:
 
@@ -152,7 +152,7 @@ The formal representation of invisible ecosystem service dependencies between sp
 **φ — Perpetuity (evolutionary maturity)**
 Measures how long species have coexisted and coevolved, and the degree to which they have optimised their interactions. Approaches 1.0 in mature, stable ecosystems. Distinct from β: φ reflects *evolutionary adaptation*, β reflects *environmental enablement*.
 
-**ε — Consciousness acceleration factor**
+**ε — Adaptation and consciousness acceleration factor**
 Quantifies how rapidly different types of systems evolve toward cooperation. Ranges from ~0.1–0.5 (genetic evolution) to ~15–20 (human-AI collaboration), enabling 100–1,000× acceleration relative to purely genetic processes. The parameter that makes MELV a framework for human and AI systems, not just biological ones.
 
 **Cooperation basin**
