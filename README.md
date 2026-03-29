@@ -8,7 +8,7 @@
 
 ## MELVcore in One Sentence
 
-MELVcore is a mathematical and computational framework that predicts when cooperation emerges in ecological, social, economic, and multi-agent systems by quantifying the energetic balance between resource overlap, service differentiation, and compatibility.
+MELVcore is a mathematical and computational framework that predicts when cooperation emerges in ecological, social, economic, and multi-agent systems by quantifying the energetic balance between interaction intensity, compatibility, evolutionary maturity, and consciousness acceleration.
 
 ---
 
@@ -16,63 +16,123 @@ MELVcore is a mathematical and computational framework that predicts when cooper
 
 Cooperation is often treated as a moral preference or evolutionary anomaly, yet across biological and artificial systems it appears with striking regularity. MELVcore reframes cooperation as a **thermodynamic attractor** — the energetic basin into which interactive associations naturally settle when interaction costs fall below a critical threshold.
 
-The framework extends classical Lotka–Volterra population dynamics by incorporating energetic burden, resource allocation, and compatibility coupling. These additions allow MELVcore to predict not only whether cooperation or competition will emerge, but also the stability, strength, and perpetuity of cooperative equilibria.
+The framework extends classical Lotka–Volterra population dynamics by incorporating four adaptive variables: interaction intensity (i), compatibility (β), evolutionary maturity (φ), and consciousness acceleration (ε). These additions allow MELVcore to predict not only whether cooperation or competition will emerge, but also the stability, strength, perpetuity, and *speed* of cooperative transitions.
 
 At its core, MELVcore formalizes a simple insight:
 
-> **Cooperation is energetically cheaper than conflict when overlap is low, differentiation is high, and compatibility is sufficient.**
+> **Cooperation is energetically cheaper than conflict when compatibility is sufficient, evolutionary maturity is high, and consciousness accelerates the optimization of interaction costs.**
 
 This insight holds across species, organisations, markets, and AI agents. Under normal ecological and social parameters, **78% of simulated systems reach cooperative equilibria** — cooperation is the dominant attractor, the energetic basin into which interactive associations naturally settle when interaction costs are allowed to fall below the critical threshold.
 
-MELVcore differs from classical Lotka–Volterra models in one critical respect: where classical LV treats interaction coefficients as fixed constants, MELV treats them as **dynamic, adaptive variables** that evolve with energetic efficiency. This allows the framework to model the *direction* of system evolution, not just its current state.
+MELVcore differs from classical Lotka–Volterra models in one critical respect: where classical LV treats interaction coefficients as **fixed constants**, MELV treats them as **dynamic, adaptive variables** that evolve through the interplay of compatibility (β), evolutionary maturity (φ), and consciousness (ε). This allows the framework to model the *direction* and *rate* of system evolution, not just its current state.
+
+---
+
+## Why MELV Matters
+
+Cooperation science has three established traditions, each with a blind spot:
+
+**Classical Lotka–Volterra** models population dynamics with precision but treats interaction coefficients as fixed constants. It describes the current state of a system but cannot predict where that system is heading, how fast it will get there, or under what conditions competitive dynamics will give way to cooperative ones.
+
+**Game theory** predicts cooperation strategically — through iterated games, reciprocal altruism, and Nash equilibria — but lacks energetic grounding. It tells you when rational agents might cooperate, not when thermodynamics makes cooperation inevitable regardless of intent.
+
+**Replicator dynamics** models the spread of cooperative strategies through populations but does not incorporate environmental compatibility, service network coupling, or consciousness as an acceleration mechanism.
+
+MELV addresses what all three lack: a framework in which interaction coefficients are dynamic, cooperation emergence is thermodynamically predicted rather than strategically assumed, compatibility is explicitly modelled through β and the Ω-matrix, and the rate of cooperative transition is governed by a measurable consciousness parameter ε.
+
+For multi-agent AI systems specifically, none of the above traditions provide a governance model grounded in the physics of interaction costs. MELVcore fills that gap — the only agent orchestration framework with a mathematical theory of *why* its architecture produces stable, cooperative behaviour.
+
+| Feature | Classical LV | Game Theory | Replicator Dynamics | MELV |
+|---|---|---|---|---|
+| Interaction coefficients | Fixed | Strategic | Frequency-dependent | Energetic & adaptive |
+| Predicts cooperation? | No | Yes (strategic) | Yes (evolutionary) | Yes (thermodynamic) |
+| Handles compatibility (β)? | No | No | No | Yes |
+| Handles sustainability (φ)? | No | No | No | Yes |
+| Consciousness acceleration (ε)? | No | No | No | Yes |
+| Bifurcation threshold? | No | No | No | Yes (i = 1.0) |
+| Service network coupling (Ω)? | No | No | No | Yes |
+| AI governance application? | No | No | No | Yes (AIOS) |
 
 ---
 
 ## Mathematical Summary
 
-MELVcore centres on three coupled quantities:
+MELVcore centres on three coupled quantities governing cooperation dynamics.
 
-### i-factor (interaction factor)
+### The Core MELV Equation
+
+The interaction coefficient evolves over time as:
 
 ```
-i = ρ / δ
+i₁₂(t) = i₁₂⁰ × (1 − ε × φ(t) × β(t))
 ```
 
-where ρ = resource overlap and δ = service differentiation.
+Where:
+- **i₁₂(t)** = interaction intensity at time t (the per capita effect of one species on another's growth rate)
+- **i₁₂⁰** = initial interaction intensity (typically > 1 in competitive systems)
+- **ε (epsilon)** = consciousness acceleration factor — quantifies how rapidly a system can evolve toward cooperation
+- **φ(t)** = perpetuity — evolutionary maturity and long-term sustainability orientation
+- **β(t)** = compatibility — environmental capacity for coexistence and niche partitioning
 
-| i value | Regime |
-|---|---|
-| i < 1.0 | Cooperation — energetically favourable |
-| i ≈ 1.0 | Bifurcation threshold |
-| i > 1.0 | Competition — energetically costly |
+As φ and β increase over time, and with ε amplifying the rate of change, i₁₂(t) declines — modelling the transition from competition toward cooperation.
 
-### Energetic cooperation condition
+**Bifurcation:** The critical threshold is i = 1.0, where interspecific costs equal intraspecific costs:
+- **i < 1.0** → Cooperation regime
+- **i = 1.0** → Bifurcation point
+- **i > 1.0** → Competition regime
+
+### Energetic Cooperation Condition
+
+A second threshold determines whether cooperation is thermodynamically favoured:
 
 ```
 (C × TAX) / β < 0.50
 ```
 
-where:
+Where:
 - **C** = environmental cost burden
-- **TAX** = resource allocation fraction
+- **TAX** = resource allocation fraction (typically 0.60–0.75 in documented mutualisms)
 - **β** = compatibility factor
 
 When this inequality holds, cooperation is thermodynamically favoured — not as a moral choice, but as a physical prediction.
 
-### β-factor (compatibility)
+### β — The Three-Dimensional Compatibility Factor
+
+β is a composite of three measurable dimensions:
 
 ```
-β = f(physical, service, temporal, φ)
+β = f(β_physical, β_service, β_temporal)
 ```
 
-where φ (phi) is perpetuity — the long-term sustainability of the cooperative relationship.
+- **β_physical** — spatial and resource partitioning potential
+- **β_service** — complementarity through ecosystem services, formally quantified via the service exchange matrix (Ω): `β_service = λ_max(Ω) / n`
+- **β_temporal** — temporal niche separation
 
-### Combined prediction
+The **Ω-matrix** (service network matrix) captures invisible dependencies between species through ecosystem service provision. It is computed as Ω = D × Cᵀ, where D is the dependency matrix and C is the contribution matrix. The dominant eigenvalue of Ω, normalised by species count n, yields β_service — a rigorous measure of how strongly network-level service exchange amplifies cooperation across the whole system.
+
+### φ — Perpetuity (Evolutionary Maturity)
+
+φ(t) measures how long species have coexisted and coevolved, reflecting the degree to which competitive overlap has been reduced through evolutionary specialisation. φ approaches 1.0 in mature ecosystems. It is conceptually distinct from β: φ captures *how* species have optimised (e.g. giraffes, zebras, and gazelles partitioning habitat by feeding height), while β captures *what enables* that optimisation (e.g. a stable, resource-rich savanna).
+
+### ε — Consciousness Acceleration Factor
+
+ε quantifies the rate at which a system can evolve toward cooperation:
+
+| Level | ε value | Timescale |
+|---|---|---|
+| Genetic evolution | ~0.1–0.5 | Millennia |
+| Behavioural adaptation | ~2–4 | Lifetimes |
+| Human cultural evolution | ~8–10 | Decades |
+| Human-AI collaboration | ~15–20 | Years |
+
+Human-AI collaboration achieves 100–1,000× acceleration in cooperation emergence compared to genetic evolution alone.
+
+### Combined Prediction
 
 Cooperation emerges and stabilises when:
-- i < 1.0
-- (C × TAX) / β < 0.50
-- φ × β exceeds the minimum compatibility threshold
+1. i₁₂(t) < 1.0 (interaction intensity below bifurcation)
+2. (C × TAX) / β < 0.50 (cooperation thermodynamically favoured)
+3. φ × β is sufficient to sustain the cooperative basin
 
 These conditions define the **cooperation basin**: the energetic attractor into which systems naturally fall when interaction costs are allowed to decline.
 
@@ -80,32 +140,46 @@ These conditions define the **cooperation basin**: the energetic attractor into 
 
 ## Glossary of Core Terms
 
-**i-factor**
-Ratio of resource overlap (ρ) to service differentiation (δ). The central invariant determining whether cooperation or competition emerges. Values below 1.0 favour cooperation; values above 1.0 favour competition.
+**i-factor (interaction coefficient)**
+The per capita effect of one species on another's growth rate. In MELV, this is a dynamic variable — not a fixed constant as in classical LV — governed by: i₁₂(t) = i₁₂⁰ × (1 − ε × φ(t) × β(t)). Values below 1.0 favour cooperation; values above 1.0 favour competition; i = 1.0 is the exact bifurcation point.
 
-**β-factor**
-Composite measure of compatibility across physical, service, temporal, and sustainability dimensions. Determines how well cooperation functions once it emerges.
+**β-factor (compatibility)**
+The environmental capacity for coexistence and niche partitioning. Composed of three dimensions: β_physical (spatial/resource partitioning), β_service (ecosystem service complementarity, derived from the Ω-matrix as λ_max(Ω)/n), and β_temporal (temporal niche separation). Higher β enables greater cooperation potential.
+
+**Ω-matrix (service network matrix)**
+The formal representation of invisible ecosystem service dependencies between species. Computed as Ω = D × Cᵀ from dependency (D) and contribution (C) matrices. Its dominant eigenvalue normalised by species count yields β_service — the quantitative measure of network-level cooperation amplification.
+
+**φ — Perpetuity (evolutionary maturity)**
+Measures how long species have coexisted and coevolved, and the degree to which they have optimised their interactions. Approaches 1.0 in mature, stable ecosystems. Distinct from β: φ reflects *evolutionary adaptation*, β reflects *environmental enablement*.
+
+**ε — Consciousness acceleration factor**
+Quantifies how rapidly different types of systems evolve toward cooperation. Ranges from ~0.1–0.5 (genetic evolution) to ~15–20 (human-AI collaboration), enabling 100–1,000× acceleration relative to purely genetic processes. The parameter that makes MELV a framework for human and AI systems, not just biological ones.
 
 **Cooperation basin**
 The energetic attractor where cooperative equilibria form — the stable region in parameter space into which interactive associations naturally settle when interaction costs fall below the critical threshold.
 
-**Critical threshold (i ≈ 1.0)**
-The bifurcation point separating cooperative and competitive regimes. Confirmed computationally at i = 0.9995 ± 0.029 (R² = 0.9248, p < 10⁻³⁰⁰).
-
-**Perpetuity (φ)**
-The long-term sustainability orientation of a cooperative relationship. Approaches 1.0 in mature ecosystems and stable institutions.
+**Critical threshold (i = 1.0)**
+The exact bifurcation point where interspecific costs equal intraspecific costs. Below this, cooperation is energetically favourable; above it, competition dominates. Computationally confirmed at i = 0.9995 ± 0.029 (R² = 0.9248, p < 10⁻³⁰⁰).
 
 **Energetic burden (C × TAX)**
-The effective cost of interaction relative to environmental constraints. When divided by β, determines whether a system is above or below the cooperation threshold.
-
-**Service differentiation (δ)**
-Degree to which entities provide distinct, non-overlapping functions. Higher differentiation lowers the i-factor and favours cooperation.
-
-**Resource overlap (ρ)**
-Degree to which entities compete for the same resources. Higher overlap raises the i-factor and favours competition.
+The effective interaction cost relative to environmental constraints. When divided by β, determines whether a system is above or below the cooperation threshold (< 0.50).
 
 **Thermodynamic attractor**
-A stable state toward which systems naturally evolve. In MELV, the cooperation basin is a thermodynamic attractor — not a designed outcome, but an energetically favoured equilibrium.
+A stable state toward which systems naturally evolve. In MELV, the cooperation basin is a thermodynamic attractor — not a designed outcome, but an energetically favoured equilibrium that systems enter when interaction costs are allowed to fall.
+
+---
+
+## Limitations
+
+MELVcore is a validated framework, not a complete theory of all cooperative behaviour. Users and researchers should be aware of the following boundaries:
+
+- **Assumes energetic minimisation** — MELV predicts cooperation where interaction costs fall below critical thresholds. It does not model deception, sabotage, or adversarial agents that deliberately raise costs to prevent cooperation.
+- **β requires domain interpretation** — the three β dimensions (β_physical, β_service, β_temporal) are conceptually well-defined but require domain-specific operationalisation. What constitutes "temporal niche separation" in an ecological system differs from its analogue in an AI agent ecosystem.
+- **ε ranges are order-of-magnitude estimates** — the consciousness acceleration values (~0.1–0.5 for genetic evolution, ~15–20 for human-AI collaboration) are empirically grounded but not yet precisely calibrated across all system types.
+- **Two-species formalism** — the canonical equation i₁₂(t) = i₁₂⁰ × (1 − ε × φ(t) × β(t)) is formally derived for pairwise interactions. Multi-species and multi-agent extensions use the Ω-matrix to capture network-level effects, but the full n-species generalisation remains an active area of development.
+- **Validation is model-based** — the computational validation streams (agent-based modelling, replicator dynamics, Jacobian stability analysis) confirm the framework's internal consistency and predictive power within simulated systems. Empirical validation in live ecological and AI systems is ongoing.
+
+These limitations do not undermine the framework's utility — they define its current scope and signal where future work is most needed.
 
 ---
 
@@ -148,7 +222,7 @@ The [MELV Mathematical Evolution Simulator](https://naturesholismmelv.github.io/
 Tutorial 1 (20 minutes) covers:
 - Cleaner fish mutualism (i = 0.24)
 - Social media platforms (i = 1.60)
-- Critical threshold at i ≈ 1.0
+- Critical threshold at i = 1.0
 - Uncertainty quantification
 - Hands-on exploration
 
@@ -182,10 +256,9 @@ print(f"95% CI: [{ci_lower:.2f}, {ci_upper:.2f}]")
 
 ```python
 result = melv.calculate_beta(
-    physical=0.85,
-    service=0.90,
-    temporal=0.75,
-    perpetuity=0.88
+    physical=0.85,      # β_physical: spatial/resource partitioning
+    service=0.90,       # β_service: ecosystem service complementarity
+    temporal=0.75,      # β_temporal: temporal niche separation
 )
 
 print(f"β = {result['beta']:.2f}")
@@ -233,7 +306,7 @@ MELVcore has undergone multi-method validation across analytical, computational,
 | Bifurcation analysis | i = 0.9995 ± 0.029, R² = 0.9248, p < 10⁻³⁰⁰ |
 | Replicator dynamics | Analytical proof of cooperation emergence below threshold |
 | Jacobian stability analysis | Equilibrium stability confirmed in cooperative regimes |
-| Service network integration | Ecosystem service coupling and compatibility dynamics validated |
+| Service network integration | β_service = λ_max(Ω)/n validated as primary cooperation driver (R² = 0.77) |
 
 Full validation dataset: [Zenodo DOI: 10.5281/zenodo.19029077](https://doi.org/10.5281/zenodo.19029077)
 
